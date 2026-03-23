@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   ft_strdup.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 21:25:01 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:03 by akmensso         ###   ########.fr       */
+/*   Created: 2025/11/18 16:28:53 by akmensso          #+#    #+#             */
+/*   Updated: 2025/11/19 15:15:24 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "push_swap.h"
-
-static void	ft_putop(char *op)
+char	*ft_strdup(const char *s)
 {
-	while (*op)
-		write(1, op++, 1);
-	write(1, "\n", 1);
-}
+	size_t	len;
+	char	*copy;
 
-void	pa(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!b->top)
-		return ;
-	node = pop_node(b);
-	push_node(a, node);
-	ft_putop("pa");
-}
-
-void	pb(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!a->top)
-		return ;
-	node = pop_node(a);
-	push_node(b, node);
-	ft_putop("pb");
+	if (!s)
+		return (NULL);
+	len = ft_strlen(s);
+	copy = malloc(sizeof(char) * (len + 1));
+	if (!copy)
+		return (NULL);
+	ft_memcpy(copy, s, len);
+	copy[len] = '\0';
+	return (copy);
 }

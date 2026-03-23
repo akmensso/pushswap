@@ -1,42 +1,42 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   ft_striteri.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 21:25:01 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:03 by akmensso         ###   ########.fr       */
+/*   Created: 2025/11/11 16:13:45 by akmensso          #+#    #+#             */
+/*   Updated: 2025/11/11 17:56:36 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	ft_putop(char *op)
+void	ft_striteri(char *s, void (*f)(unsigned int, char*))
 {
-	while (*op)
-		write(1, op++, 1);
-	write(1, "\n", 1);
-}
+	unsigned int	i;
 
-void	pa(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!b->top)
+	if (!s || !f)
 		return ;
-	node = pop_node(b);
-	push_node(a, node);
-	ft_putop("pa");
+	i = 0;
+	while (s[i])
+	{
+		f(i, &s[i]);
+		i++;
+	}
 }
-
-void	pb(t_stack *a, t_stack *b)
+/*
+void	to_upper(unsigned int i, char *c)
 {
-	t_node	*node;
-
-	if (!a->top)
-		return ;
-	node = pop_node(a);
-	push_node(b, node);
-	ft_putop("pb");
+	(void)i; // on n’utilise pas i ici
+	if (*c >= 'a' && *c <= 'z')
+		*c = *c - 32;
 }
+
+int	main(void)
+{
+	char str[] = "hello world";
+	ft_striteri(str, to_upper);
+	printf("Résultat : %s\n", str);
+	return (0);
+}*/

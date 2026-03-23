@@ -36,7 +36,7 @@ void	error_exit(t_stack *a, t_stack *b)
 {
 	free_stack(a);
 	free_stack(b);
-	ft_putstr_fd("Error", 2);  // ← ta libft
+	ft_putstr_fd("Error", 2);
 	exit(1);
 }
 
@@ -92,3 +92,4 @@ void	parse_args(int argc, char **argv, t_stack *a)
 		i--;
 	}
 }
+

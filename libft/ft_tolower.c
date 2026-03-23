@@ -1,42 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   ft_tolower.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 21:25:01 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:03 by akmensso         ###   ########.fr       */
+/*   Created: 2025/10/28 20:31:41 by akmensso          #+#    #+#             */
+/*   Updated: 2025/11/17 20:30:23 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "push_swap.h"
-
-static void	ft_putop(char *op)
+int	ft_tolower(int c)
 {
-	while (*op)
-		write(1, op++, 1);
-	write(1, "\n", 1);
+	if (c >= 'A' && c <= 'Z')
+		return (c + 32);
+	return (c);
 }
-
-void	pa(t_stack *a, t_stack *b)
+/*
+#include <stdio.h>
+#include <ctype.h>
+int	main()
 {
-	t_node	*node;
-
-	if (!b->top)
-		return ;
-	node = pop_node(b);
-	push_node(a, node);
-	ft_putop("pa");
-}
-
-void	pb(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!a->top)
-		return ;
-	node = pop_node(a);
-	push_node(b, node);
-	ft_putop("pb");
-}
+	printf ("%c\n", ft_tolower('a'));
+	printf ("%c\n", ft_tolower('A'));
+	printf ("%c\n", ft_tolower('5'));
+	printf ("%c\n", tolower('a'));
+	printf ("%c\n", tolower('A'));
+	printf ("%c\n", tolower('5'));
+}*/

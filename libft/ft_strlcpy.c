@@ -1,42 +1,29 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   ft_strlcpy.c                                       :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 21:25:01 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:03 by akmensso         ###   ########.fr       */
+/*   Created: 2025/11/12 15:00:00 by akmensso          #+#    #+#             */
+/*   Updated: 2025/11/18 20:26:50 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "push_swap.h"
-
-static void	ft_putop(char *op)
+size_t	ft_strlcpy(char *dst, const char *src, size_t size)
 {
-	while (*op)
-		write(1, op++, 1);
-	write(1, "\n", 1);
-}
+	size_t	i;
 
-void	pa(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!b->top)
-		return ;
-	node = pop_node(b);
-	push_node(a, node);
-	ft_putop("pa");
-}
-
-void	pb(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!a->top)
-		return ;
-	node = pop_node(a);
-	push_node(b, node);
-	ft_putop("pb");
+	i = 0;
+	if (size > 0)
+	{
+		while (i < size - 1 && src[i])
+		{
+			dst[i] = src[i];
+			i++;
+		}
+		dst[i] = '\0';
+	}
+	return (ft_strlen(src));
 }

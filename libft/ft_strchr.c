@@ -1,42 +1,41 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   ft_strchr.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 21:25:01 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:03 by akmensso         ###   ########.fr       */
+/*   Created: 2025/10/28 20:52:22 by akmensso          #+#    #+#             */
+/*   Updated: 2025/11/17 20:18:28 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	ft_putop(char *op)
+char	*ft_strchr(const char *s, int c)
 {
-	while (*op)
-		write(1, op++, 1);
-	write(1, "\n", 1);
-}
+	int	i;
 
-void	pa(t_stack *a, t_stack *b)
+	i = 0;
+	if (!s)
+		return (NULL);
+	while (s[i])
+	{
+		if (s[i] == (char) c)
+			return ((char *) &s[i]);
+		i++;
+	}
+	if (s[i] == (char) c)
+		return ((char *) &s[i]);
+	return (NULL);
+}
+/*
+#include <string.h>
+#include <stdio.h>
+int	main()
 {
-	t_node	*node;
+	char	s[] = "bonjour 42";
 
-	if (!b->top)
-		return ;
-	node = pop_node(b);
-	push_node(a, node);
-	ft_putop("pa");
-}
-
-void	pb(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!a->top)
-		return ;
-	node = pop_node(a);
-	push_node(b, node);
-	ft_putop("pb");
-}
+	printf("%s\n", ft_strchr(s, '1'));
+	printf("%s\n", strchr(s, '1'));
+}*/

@@ -1,42 +1,27 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 21:25:01 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:03 by akmensso         ###   ########.fr       */
+/*   Created: 2025/11/11 15:57:46 by akmensso          #+#    #+#             */
+/*   Updated: 2025/11/17 20:13:47 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "libft.h"
 
-static void	ft_putop(char *op)
+void	ft_putchar_fd(char c, int fd)
 {
-	while (*op)
-		write(1, op++, 1);
-	write(1, "\n", 1);
+	write(fd, &c, 1);
 }
-
-void	pa(t_stack *a, t_stack *b)
+/*
+int	main(void)
 {
-	t_node	*node;
-
-	if (!b->top)
-		return ;
-	node = pop_node(b);
-	push_node(a, node);
-	ft_putop("pa");
+	ft_putchar_fd('A', 1); // affiche sur la sortie standard
+	ft_putchar_fd('\n', 1);
+	ft_putchar_fd('Z', 2); // affiche sur la sortie d’erreur
+	ft_putchar_fd('\n', 2);
 }
-
-void	pb(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!a->top)
-		return ;
-	node = pop_node(a);
-	push_node(b, node);
-	ft_putop("pb");
-}
+*/

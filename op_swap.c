@@ -16,7 +16,7 @@ static void	ft_putop(char *op)
 {
 	while (*op)
 		write(1, op++, 1);
-	write(1, "\\n", 1);
+	write(1, "\n", 1);
 }
 
 void	sa(t_stack *a, int print)

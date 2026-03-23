@@ -1,42 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   ft_memset.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 21:25:01 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:03 by akmensso         ###   ########.fr       */
+/*   Created: 2025/10/17 23:00:04 by akmensso          #+#    #+#             */
+/*   Updated: 2025/11/17 20:10:52 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "push_swap.h"
-
-static void	ft_putop(char *op)
+void	*ft_memset(void *str, int c, size_t n)
 {
-	while (*op)
-		write(1, op++, 1);
-	write(1, "\n", 1);
-}
+	char	*s;
+	size_t	i;
 
-void	pa(t_stack *a, t_stack *b)
+	s = (char *)str;
+	i = 0;
+	while (i < n)
+	{
+		s[i] = c;
+		i++;
+	}
+	return (str);
+}
+/*
+#include <stdio.h>
+#include <string.h>
+int	main()
 {
-	t_node	*node;
 
-	if (!b->top)
-		return ;
-	node = pop_node(b);
-	push_node(a, node);
-	ft_putop("pa");
+	int	c;
+
+	c = '7';
+	size_t	n;
+	char s[] = "Bonjour";
+	n = 7;
+	ft_memset(&s, c , n);
+	printf("%s\n", s);
+	memset(&s, c , n);
+	printf("%s\n", s);
 }
-
-void	pb(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!a->top)
-		return ;
-	node = pop_node(a);
-	push_node(b, node);
-	ft_putop("pb");
-}
+*/

@@ -1,42 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   op_push.c                                          :+:      :+:    :+:   */
+/*   ft_putendl_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2026/03/06 21:25:01 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:03 by akmensso         ###   ########.fr       */
+/*   Created: 2025/11/11 16:07:45 by akmensso          #+#    #+#             */
+/*   Updated: 2025/11/17 20:16:43 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+#include "libft.h"
 
-#include "push_swap.h"
-
-static void	ft_putop(char *op)
+void	ft_putendl_fd(char *s, int fd)
 {
-	while (*op)
-		write(1, op++, 1);
-	write(1, "\n", 1);
-}
-
-void	pa(t_stack *a, t_stack *b)
-{
-	t_node	*node;
-
-	if (!b->top)
+	if (!s)
 		return ;
-	node = pop_node(b);
-	push_node(a, node);
-	ft_putop("pa");
+	write(fd, s, ft_strlen(s));
+	write(fd, "\n", 1);
 }
-
-void	pb(t_stack *a, t_stack *b)
+/*
+int	main(void)
 {
-	t_node	*node;
-
-	if (!a->top)
-		return ;
-	node = pop_node(a);
-	push_node(b, node);
-	ft_putop("pb");
-}
+	ft_putendl_fd("Hello World", 1);
+	ft_putendl_fd("Ceci est une ligne avec retour", 1);
+	ft_putendl_fd("Message d'erreur", 2);
+	return (0);
+}*/
