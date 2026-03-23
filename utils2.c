@@ -73,12 +73,3 @@ int	find_max_pos(t_stack *stack)
 	}
 	return (pos);
 }
-int	ft_strlen(const char *str)
-{
-	int	i;
-
-	i = 0;
-	while (str[i])
-		i++;
-	return (i);
-}

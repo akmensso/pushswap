@@ -36,7 +36,7 @@ void	error_exit(t_stack *a, t_stack *b)
 {
 	free_stack(a);
 	free_stack(b);
-	ft_putstr_fd("Error", 2);
+	ft_putstr_fd("Error\n", 2);
 	exit(1);
 }
 

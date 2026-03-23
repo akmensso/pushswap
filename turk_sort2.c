@@ -6,6 +6,8 @@ void	push_all_to_a(t_stack *a, t_stack *b)
 
 	while (b->size > 0)
 	{
+		if (!b->top)
+			break ;
 		normalize(a);
 		normalize(b);
 		set_targets_b_to_a(a, b);
