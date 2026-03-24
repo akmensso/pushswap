@@ -6,7 +6,7 @@
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:26:22 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:26:24 by akmensso         ###   ########.fr       */
+/*   Updated: 2026/03/24 21:51:02 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -92,4 +92,3 @@ void	parse_args(int argc, char **argv, t_stack *a)
 		i--;
 	}
 }
-

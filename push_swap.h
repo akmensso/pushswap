@@ -6,7 +6,7 @@
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:25:45 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:47 by akmensso         ###   ########.fr       */
+/*   Updated: 2026/03/24 21:50:10 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@
 typedef struct s_node
 {
 	int				value;
-	int				index; 
+	int				index;
 	int				pos;
 	int				target_pos;
 	int				cost_a;

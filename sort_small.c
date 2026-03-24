@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sort_small.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/24 18:26:18 by akmensso          #+#    #+#             */
+/*   Updated: 2026/03/24 21:56:17 by akmensso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	sort_three(t_stack *a)
@@ -9,7 +21,6 @@ void	sort_three(t_stack *a)
 	top = a->top->value;
 	mid = a->top->next->value;
 	bot = a->top->next->next->value;
-
 	if (top > mid && mid < bot && top < bot)
 		sa(a, 1);
 	else if (top > mid && mid > bot)

@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   turk_cost.c                                        :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/24 18:24:12 by akmensso          #+#    #+#             */
+/*   Updated: 2026/03/24 21:52:03 by akmensso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	set_positions(t_stack *stack)
@@ -77,12 +89,31 @@ static int	find_target_in_a(t_node *cur_b, t_stack *a)
 void	set_targets_b_to_a(t_stack *a, t_stack *b)
 {
 	t_node	*cur_b;
+	t_node	*cur_a;
+	int		best_val;
+	int		best_pos;
 
 	set_positions(a);
 	cur_b = b->top;
 	while (cur_b)
 	{
-		cur_b->target_pos = find_target_in_a(cur_b, a);
+		best_val = -1;
+		best_pos = find_min_pos(a);
+		cur_a = a->top;
+		while (cur_a)
+		{
+			if (cur_a->value > cur_b->value)
+			{
+				if (best_val == -1 || cur_a->value < best_val)
+				{
+					best_val = cur_a->value;
+					best_pos = cur_a->pos;
+				}
+			}
+			cur_a = cur_a->next;
+		}
+		cur_b->target_pos = best_pos;
 		cur_b = cur_b->next;
 	}
 }
+

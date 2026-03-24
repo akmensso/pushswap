@@ -6,7 +6,7 @@
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2026/03/06 21:25:16 by akmensso          #+#    #+#             */
-/*   Updated: 2026/03/06 21:25:19 by akmensso         ###   ########.fr       */
+/*   Updated: 2026/03/24 21:49:10 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ static void	ft_putop(char *op)
 void	ra(t_stack *a, int print)
 {
 	t_node	*cur;
-	t_node *first;
+	t_node	*first;
 
 	if (a->size < 2)
 		return ;

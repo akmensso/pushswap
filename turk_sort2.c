@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   turk_sort2.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2026/03/24 18:27:29 by akmensso          #+#    #+#             */
+/*   Updated: 2026/03/24 18:27:32 by akmensso         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	push_all_to_a(t_stack *a, t_stack *b)
@@ -8,8 +20,6 @@ void	push_all_to_a(t_stack *a, t_stack *b)
 	{
 		if (!b->top)
 			break ;
-		normalize(a);
-		normalize(b);
 		set_targets_b_to_a(a, b);
 		set_positions(a);
 		target = b->top->target_pos;

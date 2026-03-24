@@ -6,10 +6,11 @@
 /*   By: akmensso <akmensso@student.42belgium.      +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/11/11 16:09:32 by akmensso          #+#    #+#             */
-/*   Updated: 2025/11/25 19:29:06 by akmensso         ###   ########.fr       */
+/*   Updated: 2026/03/24 21:59:08 by akmensso         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include <stdio.h>
 #include "libft.h"
 
 static size_t	count_words(char const *s, char c)
@@ -69,9 +70,7 @@ char	**ft_split(char const *s, char c)
 	tab[i] = NULL;
 	return (tab);
 }
-
-#include <stdio.h>
-
+/*
 int main(void)
 {
 	char **split = ft_split("Salut comment ca va", ' ');
@@ -84,4 +83,4 @@ int main(void)
 		i++;
 	}
 	free(split);
-}
+}*/
