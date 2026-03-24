@@ -31,7 +31,7 @@ void	sort_five(t_stack *a, t_stack *b)
 {
 	int	min_pos;
 
-	while (b->size < 2)
+	while (a->size > 3)
 	{
 		min_pos = find_min_pos(a);
 		if (min_pos == 0)
@@ -42,8 +42,9 @@ void	sort_five(t_stack *a, t_stack *b)
 			rra(a, 1);
 	}
 	sort_three(a);
-	if (b->top->value < b->top->next->value)
+	if (b->size == 2 && b->top->value < b->top->next->value)
 		sb(b, 1);
 	pa(a, b);
-	pa(a, b);
+	if (b->size > 0)
+		pa(a, b);
 }

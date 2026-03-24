@@ -22,15 +22,17 @@ static void	ft_putop(char *op)
 void	ra(t_stack *a, int print)
 {
 	t_node	*cur;
+	t_node *first;
 
 	if (a->size < 2)
 		return ;
-	cur = a->top;
-	while (cur->next->next)
-		cur = cur->next;
-	cur->next = a->top;
+	first = a->top;
 	a->top = a->top->next;
-	cur->next->next = NULL;
+	first->next = NULL;
+	cur = a->top;
+	while (cur->next)
+		cur = cur->next;
+	cur->next = first;
 	if (print)
 		ft_putop("ra");
 }
@@ -42,7 +44,7 @@ void	rb(t_stack *b, int print)
 	if (b->size < 2)
 		return ;
 	cur = b->top;
-	while (cur->next->next)
+	while (cur->next && cur->next->next)
 		cur = cur->next;
 	cur->next = b->top;
 	b->top = b->top->next;
@@ -66,7 +68,7 @@ void	rra(t_stack *a, int print)
 	if (a->size < 2)
 		return ;
 	cur = a->top;
-	while (cur->next->next)
+	while (cur->next && cur->next->next)
 		cur = cur->next;
 	last = cur->next;
 	cur->next = NULL;

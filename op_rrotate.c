@@ -15,7 +15,7 @@ void	rrb(t_stack *b, int print)
 	if (b->size < 2)
 		return ;
 	cur = b->top;
-	while (cur->next->next)
+	while (cur->next && cur->next->next)
 		cur = cur->next;
 	last = cur->next;
 	cur->next = NULL;

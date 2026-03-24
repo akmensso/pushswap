@@ -33,13 +33,15 @@ int	find_min_pos(t_stack *stack)
 	int		pos;
 	int		i;
 
+	if (!stack || !stack->top)
+		return (0);
 	cur = stack->top;
 	min = cur->value;
 	pos = 0;
 	i = 0;
 	while (cur)
 	{
-		if (cur->value < min)
+		if (cur->value <= min)
 		{
 			min = cur->value;
 			pos = i;
