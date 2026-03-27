@@ -36,7 +36,7 @@ typedef struct s_stack
 }	t_stack;
 
 t_stack		*init_stack(void);
-void		parse_args(int argc, char **argv, t_stack *a);
+void		parse_args(int argc, char **argv, t_stack *a, t_stack *b);
 int			is_valid_int(char *str);
 void		free_stack(t_stack *stack);
 void		error_exit(t_stack *a, t_stack *b);

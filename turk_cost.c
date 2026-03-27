@@ -29,23 +29,26 @@ void	set_positions(t_stack *stack)
 static int	find_target_in_b(t_node *cur_a, t_stack *b)
 {
 	t_node	*cur_b;
-	int		best_index;
+	int		best_val;
 	int		best_pos;
 
-	best_index = -1;
-	best_pos = -1;
+	if (!b->top)
+		return (0);
+	best_val = -1;
+	best_pos = find_max_pos(b);
 	cur_b = b->top;
 	while (cur_b)
 	{
-		if (cur_b->index < cur_a->index && cur_b->index > best_index)
+		if (cur_b->value < cur_a->value)
 		{
-			best_index = cur_b->index;
-			best_pos = cur_b->pos;
+			if (best_val == -1 || cur_b->value > best_val)
+			{
+				best_val = cur_b->value;
+				best_pos = cur_b->pos;
+			}
 		}
 		cur_b = cur_b->next;
 	}
-	if (best_pos == -1)
-		return (find_max_pos(b));
 	return (best_pos);
 }
 
@@ -62,58 +65,39 @@ void	set_targets_a_to_b(t_stack *a, t_stack *b)
 	}
 }
 
-static int	find_target_in_a(t_node *cur_b, t_stack *a)
+static int	find_best_pos(t_stack *a, int val)
 {
-	t_node	*cur_a;
-	int		best_index;
+	t_node	*cur;
+	int		best_val;
 	int		best_pos;
 
-	best_index = -1;
-	best_pos = -1;
-	cur_a = a->top;
-	while (cur_a)
+	best_val = -1;
+	best_pos = (find_max_pos(a) + 1) % a->size;
+	cur = a->top;
+	while (cur)
 	{
-		if (cur_a->index > cur_b->index
-			&& (best_index == -1 || cur_a->index < best_index))
+		if (cur->value > val)
 		{
-			best_index = cur_a->index;
-			best_pos = cur_a->pos;
+			if (best_val == -1 || cur->value < best_val)
+			{
+				best_val = cur->value;
+				best_pos = cur->pos;
+			}
 		}
-		cur_a = cur_a->next;
+		cur = cur->next;
 	}
-	if (best_pos == -1)
-		return (find_min_pos(a));
 	return (best_pos);
 }
 
 void	set_targets_b_to_a(t_stack *a, t_stack *b)
 {
 	t_node	*cur_b;
-	t_node	*cur_a;
-	int		best_val;
-	int		best_pos;
 
 	set_positions(a);
 	cur_b = b->top;
 	while (cur_b)
 	{
-		best_val = -1;
-		best_pos = find_min_pos(a);
-		cur_a = a->top;
-		while (cur_a)
-		{
-			if (cur_a->value > cur_b->value)
-			{
-				if (best_val == -1 || cur_a->value < best_val)
-				{
-					best_val = cur_a->value;
-					best_pos = cur_a->pos;
-				}
-			}
-			cur_a = cur_a->next;
-		}
-		cur_b->target_pos = best_pos;
+		cur_b->target_pos = find_best_pos(a, cur_b->value);
 		cur_b = cur_b->next;
 	}
 }
-

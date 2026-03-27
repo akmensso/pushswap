@@ -12,26 +12,54 @@
 
 #include "push_swap.h"
 
+static int	find_insert_pos(t_stack *a, int val)
+{
+	t_node	*cur;
+	t_node	*best;
+	int		i;
+	int		best_pos;
+
+	cur = a->top;
+	best = NULL;
+	best_pos = 0;
+	i = 0;
+	while (cur)
+	{
+		if (cur->value > val)
+		{
+			if (best == NULL || cur->value < best->value)
+			{
+				best = cur;
+				best_pos = i;
+			}
+		}
+		cur = cur->next;
+		i++;
+	}
+	if (best == NULL)
+		best_pos = (find_max_pos(a) + 1) % a->size;
+	return (best_pos);
+}
+
 void	push_all_to_a(t_stack *a, t_stack *b)
 {
-	int	target;
+	int	pos;
+	int	size;
 
 	while (b->size > 0)
 	{
-		if (!b->top)
-			break ;
-		set_targets_b_to_a(a, b);
 		set_positions(a);
-		target = b->top->target_pos;
-		if (target <= a->size / 2)
+		pos = find_insert_pos(a, b->top->value);
+		size = a->size;
+		if (pos <= size / 2)
 		{
-			while (target-- > 0)
+			while (pos-- > 0)
 				ra(a, 1);
 		}
 		else
 		{
-			target = a->size - target;
-			while (target-- > 0)
+			pos = size - pos;
+			while (pos-- > 0)
 				rra(a, 1);
 		}
 		pa(a, b);

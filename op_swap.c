@@ -28,8 +28,8 @@ void	sa(t_stack *a, int print)
 		return ;
 	first = pop_node(a);
 	second = pop_node(a);
-	push_node(a, second);
 	push_node(a, first);
+	push_node(a, second);
 	if (print)
 		ft_putop("sa");
 }
@@ -43,8 +43,8 @@ void	sb(t_stack *b, int print)
 		return ;
 	first = pop_node(b);
 	second = pop_node(b);
-	push_node(b, second);
 	push_node(b, first);
+	push_node(b, second);
 	if (print)
 		ft_putop("sb");
 }

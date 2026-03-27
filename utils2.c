@@ -41,7 +41,7 @@ int	find_min_pos(t_stack *stack)
 	i = 0;
 	while (cur)
 	{
-		if (cur->value <= min)
+		if (cur->value < min)
 		{
 			min = cur->value;
 			pos = i;

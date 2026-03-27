@@ -39,16 +39,18 @@ void	ra(t_stack *a, int print)
 
 void	rb(t_stack *b, int print)
 {
+	t_node	*first;
 	t_node	*cur;
 
 	if (b->size < 2)
 		return ;
-	cur = b->top;
-	while (cur->next && cur->next->next)
-		cur = cur->next;
-	cur->next = b->top;
+	first = b->top;
 	b->top = b->top->next;
-	cur->next->next = NULL;
+	first->next = NULL;
+	cur = b->top;
+	while (cur->next)
+		cur = cur->next;
+	cur->next = first;
 	if (print)
 		ft_putop("rb");
 }

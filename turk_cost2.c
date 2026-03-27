@@ -19,6 +19,7 @@ void	set_costs(t_stack *a, t_stack *b)
 	int		cost_b;
 
 	set_positions(a);
+	set_positions(b);
 	cur = a->top;
 	while (cur)
 	{
@@ -26,7 +27,9 @@ void	set_costs(t_stack *a, t_stack *b)
 			cost_a = cur->pos;
 		else
 			cost_a = -(a->size - cur->pos);
-		if (cur->target_pos <= b->size / 2)
+		if (b->size == 0)
+			cost_b = 0;
+		else if (cur->target_pos <= b->size / 2)
 			cost_b = cur->target_pos;
 		else
 			cost_b = -(b->size - cur->target_pos);

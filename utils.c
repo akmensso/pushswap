@@ -63,7 +63,7 @@ int	is_valid_int(char *str)
 	return (1);
 }
 
-void	parse_args(int argc, char **argv, t_stack *a)
+void	parse_args(int argc, char **argv, t_stack *a, t_stack *b)
 {
 	int		i;
 	long	val;
@@ -74,20 +74,20 @@ void	parse_args(int argc, char **argv, t_stack *a)
 	while (i >= 1)
 	{
 		if (!is_valid_int(argv[i]))
-			error_exit(a, NULL);
+			error_exit(a, b);
 		val = ft_atol(argv[i]);
 		if (val > INT_MAX || val < INT_MIN)
-			error_exit(a, NULL);
+			error_exit(a, b);
 		tmp = a->top;
 		while (tmp)
 		{
 			if (tmp->value == (int)val)
-				error_exit(a, NULL);
+				error_exit(a, b);
 			tmp = tmp->next;
 		}
 		node = new_node((int)val);
 		if (!node)
-			error_exit(a, NULL);
+			error_exit(a, b);
 		push_node(a, node);
 		i--;
 	}
